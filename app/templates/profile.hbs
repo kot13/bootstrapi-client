@@ -1,0 +1,32 @@
+{{ outlet }}
+
+<div class="row">
+    <div class="col-md-6">
+        {{#bs-form action="submit" class="well"}}
+            {{#bs-form-group}}
+                <label>Ваше имя</label>
+                {{bs-input type="text" value=model.user.fullName}}
+            {{/bs-form-group}}
+
+            {{#bs-form-group}}
+                <label>Email</label>
+                {{bs-input type="text" value=model.user.email readonly=""}}
+            {{/bs-form-group}}
+
+            {{#bs-form-group}}
+                <label>Новый пароль</label>
+                {{bs-input type="text" value=model.user.password}}
+            {{/bs-form-group}}
+
+            {{#bs-form-group}}
+                <button class="btn btn-block btn-primary {{if loading "disabled"}}" {{action 'submit'}}>
+                    {{#if loading}}
+                        Сохраняю...
+                    {{else}}
+                        Сохранить
+                    {{/if}}
+                </button>
+            {{/bs-form-group}}
+        {{/bs-form}}
+    </div>
+</div>

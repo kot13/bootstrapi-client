@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Новый пароль</h3>
+        <small>
+            Пожалуйста, введите ваш новый пароль.
+        </small>
+    </div>
+    <div class="panel-body">
+        <form action="" method="POST" {{action 'reset' token on='submit'}}>
+            <div class="form-group">
+                <label class="control-label" for="password">Новый пароль</label>
+                {{input value=password type="password" class="form-control" placeholder="Пароль"}}
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password_repeat">Пароль</label>
+                {{input value=password_repeat type="password" class="form-control" placeholder="Повторите пароль"}}
+            </div>
+            <div class="form-group">
+                {{input value="Изменить" type="submit" class="btn btn-primary"}}
+            </div>
+            {{#if errorMessage}}<div class="form-group"><div class="alert alert-danger" role="alert">{{errorMessage}}</div></div>{{/if}}
+        </form>
+    </div>
+</div>

@@ -1,3 +1,51 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#if session.isAuthenticated}}
+    <div class="wrapper">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{#link-to "index" class="navbar-brand"}}Bootstrapi{{/link-to}}
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {{#link-to "index" tagName="li"}}
+                            {{#link-to "index"}}Главная{{/link-to}}
+                        {{/link-to}}
+                        {{#if (can "browse logs")}}
+                        {{#link-to "logs" tagName="li"}}
+                            {{#link-to "logs"}}Логи{{/link-to}}
+                        {{/link-to}}
+                        {{/if}}
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {{#bs-dropdown tagName="li"}}
+                            {{#bs-dropdown-toggle}} {{user.fullName}} <span class="caret"></span>{{/bs-dropdown-toggle}}
+                            {{#bs-dropdown-menu}}
+                                <li>{{#link-to "profile"}}Профиль{{/link-to}}</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a {{action 'logout'}}>Выход</a></li>
+                            {{/bs-dropdown-menu}}
+                        {{/bs-dropdown}}
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-{{outlet}}
+        <div class="container-fluid">
+            {{outlet}}
+        </div>
+    </div>
+    {{ember-notify messageStyle='bootstrap'}}
+{{else}}
+    <div class="wrapper login-page">
+        <div class="container">
+            {{outlet "login"}}
+        </div>
+    </div>
+    {{ember-notify messageStyle='bootstrap'}}
+{{/if}}

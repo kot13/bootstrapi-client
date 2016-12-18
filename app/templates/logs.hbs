@@ -1,0 +1,74 @@
+{{outlet}}
+
+<div class="row">
+    <div class="col-md-10">
+        <h1>История изменений</h1>
+
+        <table class="table table-condensed table-striped table-hover">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Действие</th>
+                <th>ID сущности</th>
+                <th>Тип сущности</th>
+                <th>Состояние</th>
+                <th>Дата</th>
+                <th>Пользователь</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each logs as |log index|}}
+                <tr>
+                    <td>{{sum index 1}}</td>
+                    <td>{{log.action}}</td>
+                    <td>{{log.entityId}}</td>
+                    <td>{{log.entityType}}</td>
+                    <td>{{log.state}}</td>
+                    <td>{{moment-format log.createdAt "DD.MM.YY HH:mm:ss"}}</td>
+                    <td>{{log.createdBy}}</td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="7">К сожалению, ни одной транзакции не найдено.</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="previous">
+                    {{#link-to "logs" (query-params page=model.logs.meta.pagination.first.number)}}
+                        <span aria-hidden="true">&larr;</span> Первая
+                    {{/link-to}}
+                </li>
+                <li class="{{unless model.logs.meta.pagination.prev.number "disabled"}}">
+                    {{# if model.logs.meta.pagination.prev.number}}
+                        {{#link-to "logs" (query-params page=model.logs.meta.pagination.prev.number)}}
+                            Предыдущая
+                        {{/link-to}}
+                    {{else}}
+                        <a>Предыдущая</a>
+                    {{/if}}
+                </li>
+                <li class="{{unless model.logs.meta.pagination.next.number "disabled"}}">
+                    {{# if model.logs.meta.pagination.next.number}}
+                        {{#link-to "logs" (query-params page=model.logs.meta.pagination.next.number)}}
+                            Следующая
+                        {{/link-to}}
+                    {{else}}
+                        <a>Следующая</a>
+                    {{/if}}
+                </li>
+                <li class="next">
+                    {{#link-to "logs" (query-params page=model.logs.meta.pagination.last.number)}}
+                        Последняя <span aria-hidden="true">&rarr;</span>
+                    {{/link-to}}
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

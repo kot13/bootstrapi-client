@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Восстановление пароля</h3>
+        <small>
+            Пожалуйста, введите ваш email.
+        </small>
+    </div>
+    <div class="panel-body">
+        <form action="" method="POST" {{action 'recovery' on='submit'}}>
+            <div class="form-group">
+                <label class="control-label" for="email">Email</label>
+                {{input value=email type="text" class="form-control" placeholder="Email"}}
+            </div>
+            <div class="form-group">
+                {{input value="Восстановить" type="submit" class="btn btn-primary"}}
+            </div>
+            {{#if errorMessage}}<div class="form-group"><div class="alert alert-danger" role="alert">{{errorMessage}}</div></div>{{/if}}
+        </form>
+    </div>
+    <div class="panel-footer">
+        {{#link-to "login"}}Есть аккаунт?{{/link-to}}
+    </div>
+</div>

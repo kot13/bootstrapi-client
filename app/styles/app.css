@@ -1,0 +1,109 @@
+.login-page{
+    padding-top: 100px;
+}
+
+.navbar-static-top{
+    z-index: 900;
+}
+.ember-modal-overlay{
+    z-index: 901;
+}
+
+.tab-content-static{
+    margin-top: 20px;
+}
+
+
+.page-loader{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.3);
+    z-index: 99999;
+}
+.page-loader .loading{
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0px -50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.page-loader .loading.bar div{
+    width: 10px;
+    height: 30px;
+    background: black;
+    position: absolute;
+    top: 35px;
+    left: 45px;
+    opacity:0.05;
+
+    -webkit-animation: fadeit 1.1s linear infinite;
+    animation: fadeit 1.1s linear infinite;
+}
+.page-loader .loading.bar div:nth-child(1){
+    -webkit-transform: rotate(0deg) translate(0, -30px);
+    transform: rotate(0deg) translate(0, -30px);
+
+    -webkit-animation-delay:0.39s;
+    animation-delay:0.39s;
+}
+.page-loader .loading.bar div:nth-child(2){
+    -webkit-transform: rotate(45deg) translate(0, -30px);
+    transform: rotate(45deg) translate(0, -30px);
+
+    -webkit-animation-delay:0.52s;
+    animation-delay:0.52s;
+}
+.page-loader .loading.bar div:nth-child(3){
+    -webkit-transform: rotate(90deg) translate(0, -30px);
+    transform: rotate(90deg) translate(0, -30px);
+
+    -webkit-animation-delay:0.65s;
+    animation-delay:0.65s;
+}
+.page-loader .loading.bar div:nth-child(4){
+    -webkit-transform: rotate(135deg) translate(0, -30px);
+    transform: rotate(135deg) translate(0, -30px);
+
+    -webkit-animation-delay:0.78s;
+    animation-delay:0.78s;
+}
+.page-loader .loading.bar div:nth-child(5){
+    -webkit-transform: rotate(180deg) translate(0, -30px);
+    transform: rotate(180deg) translate(0, -30px);
+
+    -webkit-animation-delay:0.91s;
+    animation-delay:0.91s;
+}
+.page-loader .loading.bar div:nth-child(6){
+    -webkit-transform: rotate(225deg) translate(0, -30px);
+    transform: rotate(225deg) translate(0, -30px);
+
+    -webkit-animation-delay:1.04s;
+    animation-delay:1.04s;
+}
+.page-loader .loading.bar div:nth-child(7){
+    -webkit-transform: rotate(270deg) translate(0, -30px);
+    transform: rotate(270deg) translate(0, -30px);
+
+    -webkit-animation-delay:1.17s;
+    animation-delay:1.17s;
+}
+.page-loader .loading.bar div:nth-child(8){
+    -webkit-transform: rotate(315deg) translate(0, -30px);
+    transform: rotate(315deg) translate(0, -30px);
+
+    -webkit-animation-delay:1.3s;
+    animation-delay:1.3s;
+}
+@-webkit-keyframes fadeit{
+    0%{ opacity:1; }
+    100%{ opacity:0;}
+}
+@keyframes fadeit{
+    0%{ opacity:1; }
+    100%{ opacity:0;}
+}
